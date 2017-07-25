@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.liuwei.knoweasy.R;
+import com.liuwei.knoweasy.ad.AdTestActivity;
 import com.liuwei.knoweasy.base.BaseActivity;
 import com.liuwei.knoweasy.dialog.DialogActivity;
 
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity
 
 	private void initProvider() {
 		mProvider.addData(new DemoBean("Alert Dialog", DialogActivity.class));
+		mProvider.addData(new DemoBean("Ad Demo", AdTestActivity.class));
 	}
 
 	private void itemClick(View v, int pos) {

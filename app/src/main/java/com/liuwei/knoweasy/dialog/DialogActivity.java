@@ -115,6 +115,8 @@ public class DialogActivity extends BaseActivity implements AdapterView.OnItemCl
 		ArrayList<String> data = new ArrayList<>();
 		ArrayList<String> choiceList = new ArrayList<>();
 
+		RadioGroup rg;
+
 		@Override
 		public Dialog onCreateDialog(Bundle savedInstanceState) {
 			data.addAll(Arrays.asList("data1", "data2"));
@@ -146,12 +148,15 @@ public class DialogActivity extends BaseActivity implements AdapterView.OnItemCl
 						return tv;
 					} else {
 						View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_single_choice, parent, false);
-						RadioGroup rg = (RadioGroup) v.findViewById(R.id.single_choice_radiogroup);
+						rg = (RadioGroup) v.findViewById(R.id.single_choice_radiogroup);
 						for (String s : choiceList) {
 							RadioButton rb = new RadioButton(getContext());
 							rb.setText(s);
 							rb.setMinHeight(SizeUtils.dp2px(64));
 							rg.addView(rb);
+							if (s.equals("choice2")) {
+								rb.setChecked(true);
+							}
 						}
 
 						return v;
@@ -163,6 +168,8 @@ public class DialogActivity extends BaseActivity implements AdapterView.OnItemCl
 
 		@Override
 		public void onClick(DialogInterface dialog, int which) {
+			Toast.makeText(getContext(), "number : " + which, Toast.LENGTH_LONG).show();
+			Toast.makeText(getContext(), "number : " + rg.getCheckedRadioButtonId(), Toast.LENGTH_LONG).show();
 		}
 	}
 }
