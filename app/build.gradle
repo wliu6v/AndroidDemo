@@ -54,10 +54,6 @@ dependencies {
     compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
 
-    // ad test
-    compile 'com.flurry.android:ads:6.3.1'
-    compile 'com.facebook.android:audience-network-sdk:4.17.0'
-    compile 'com.google.android.gms:play-services-ads:10.0.1'
 }
 repositories {
     mavenCentral()
