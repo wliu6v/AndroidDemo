@@ -26,6 +26,7 @@
         </activity>
         <activity android:name=".dialog.DialogActivity"/>
         <activity android:name=".color.ColorActivity"/>
+        <activity android:name=".grid.GridLayoutActivity"/>
     </application>
 
 </manifest>

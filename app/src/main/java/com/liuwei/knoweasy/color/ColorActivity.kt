@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -12,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
+import com.liuwei.knoweasy.base.BaseActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import java.util.*
@@ -19,13 +19,15 @@ import java.util.*
 /**
  * Created by liuwei on 2017/8/3.
  */
-class ColorActivity : AppCompatActivity(), ColorPickerDialogListener {
+class ColorActivity : BaseActivity(), ColorPickerDialogListener {
     lateinit var view: UI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         view = UI()
         view.setContentView(this@ColorActivity)
+        setBackable()
+        title = "Color Test"
         initView()
     }
 

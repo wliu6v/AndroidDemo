@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <!-- 此处 SquareTextView 的宽高是依赖于父 Layout 而自适应的，
+    如果将 marginBottom 改为了 above grid_item_bottom 则无法正常显示 -->
+    <com.liuwei.knoweasy.grid.SquareTextView
+        android:id="@+id/grid_item_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="DEFAULT"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/grid_item_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="ItemBottom"/>
+
+    <!-- 此处设置总是无法生效 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/grid_item_textview"
+        android:background="@android:color/black"
+        />
+
+</RelativeLayout>
