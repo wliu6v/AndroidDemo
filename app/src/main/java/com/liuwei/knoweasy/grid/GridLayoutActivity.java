@@ -49,30 +49,11 @@ public class GridLayoutActivity extends BaseActivity {
 	}
 
 	private void initView() {
-		mGridLayoutManager = new GridLayoutManager(this, 3);
-		mGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-			@Override
-			public int getSpanSize(int position) {
-				if (position < 1) {
-					return 3;
-				} else {
-					return 1;
-				}
-			}
-		});
-		mRecyclerView.setLayoutManager(mGridLayoutManager);
-		mItemDecoration = new GridItemDecoration();
-		mItemDecoration.setHeaderCount(1);
-		mItemDecoration.setSpanCount(3);
-
-		mRecyclerView.addItemDecoration(mItemDecoration);
-
-		RecyclerView.Adapter adapter = new GridLayoutAdapter();
-		mRecyclerView.setAdapter(adapter);
-
+		refresh();
 		mRefreshBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				UtilsKt.hideKeyboard(v);
 				refresh();
 			}
 		});
@@ -94,8 +75,12 @@ public class GridLayoutActivity extends BaseActivity {
 			Log.d("6v", "refresh: count=" + count);
 		}
 
-		mGridLayoutManager.setSpanCount(count);
 		final int finalCount = count;
+		if (mGridLayoutManager == null) {
+			mGridLayoutManager = new GridLayoutManager(this, count);
+			mRecyclerView.setLayoutManager(mGridLayoutManager);
+		}
+		mGridLayoutManager.setSpanCount(count);
 		mGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
 			@Override
 			public int getSpanSize(int position) {
@@ -106,11 +91,19 @@ public class GridLayoutActivity extends BaseActivity {
 				}
 			}
 		});
+		if (mItemDecoration == null) {
+			mItemDecoration = new GridItemDecoration();
+			mRecyclerView.addItemDecoration(mItemDecoration);
+		}
+		mItemDecoration.setHeaderCount(1);
 		mItemDecoration.setSpanCount(count);
 		mItemDecoration.setOuterSpacing(margin);
 		mItemDecoration.setVerticalSpacing(margin);
 		mItemDecoration.setSpacing(margin);
 
+		if (mRecyclerView.getAdapter() == null) {
+			mRecyclerView.setAdapter(new GridLayoutAdapter());
+		}
 		mRecyclerView.getAdapter().notifyDataSetChanged();
 	}
 

@@ -3,17 +3,14 @@ package com.liuwei.knoweasy.grid;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.liuwei.knoweasy.R;
 import com.liuwei.knoweasy.tool.UtilsKt;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,7 +47,7 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 		if (viewType == TYPE_HEADER) {
 			vh = new HeaderViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_header, parent, false));
 		} else {
-			vh = new GridViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_item, parent, false));
+			vh = new GridViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_item2, parent, false));
 		}
 		return vh;
 	}
