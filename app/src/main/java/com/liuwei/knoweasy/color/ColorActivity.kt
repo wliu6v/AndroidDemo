@@ -2,6 +2,7 @@ package com.liuwei.knoweasy.color
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.view.View
@@ -72,7 +73,7 @@ class ColorActivity : BaseActivity(), ColorPickerDialogListener {
         val hsv = kotlin.FloatArray(3)
         Color.colorToHSV(color, hsv)
         val grayLevel = (hsv[0] * 0.299 + hsv[1] * 0.587 + hsv[2] * 0.114)
-        addMsg("The HSV GrayLevel is : $grayLevel")
+        addMsg("The HSV GrayLevel is : ${"%.5f".format(grayLevel)}")
 
         val darkerHsv = kotlin.FloatArray(3)
         darkerHsv[0] = hsv[0]
@@ -89,11 +90,12 @@ class ColorActivity : BaseActivity(), ColorPickerDialogListener {
 
         val tvList = Arrays.asList(view.darkerView, view.colorView, view.lighterView)
         val colorList = Arrays.asList(darkerColor, color, lighterColor)
+        addMsg("        R     G     B      Y")
         for (i in tvList.indices) {
             val t = tvList[i]
             val c = colorList[i]
             t.backgroundColor = c
-            t.text = Integer.toHexString(c)
+            t.text = Integer.toHexString(c).toUpperCase().substring(2)
             t.textColor = ContextCompat.getColor(this@ColorActivity, if (isLighterColor(c)) android.R.color.black else android.R.color.white)
         }
     }
@@ -110,7 +112,8 @@ class ColorActivity : BaseActivity(), ColorPickerDialogListener {
         val b = color and 0xFF
         val y = r * 0.299 + g * 0.587 + b * 0.114
 
-        addMsg("RGB = ${"%3d".format(r)}, ${"%3d".format(g)}, ${"%3d".format(b)}, Y = ${"%.3f".format(y)}")
+//        addMsg("RGB=${"%3d".format(r)},${"%3d".format(g)},${"%3d".format(b)},Y=${"%.3f".format(y)}")
+        addMsg("${Integer.toHexString(color).toUpperCase().substring(2)}:${"%3d".format(r)} | ${"%3d".format(g)} | ${"%3d".format(b)} | ${"%.3f".format(y)}")
 
         return y > 157
     }
@@ -151,7 +154,11 @@ class ColorActivity : BaseActivity(), ColorPickerDialogListener {
                             height = dip(40)
                         }
                     }
-                    scrollView { statusTv = textView() }
+                    scrollView {
+                        statusTv = textView {
+                            typeface = Typeface.MONOSPACE
+                        }
+                    }
                 }
             }
         }
