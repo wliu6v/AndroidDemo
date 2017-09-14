@@ -30,6 +30,7 @@
             android:name=".grid.GridLayoutActivity"
             android:windowSoftInputMode="stateHidden"
             />
+        <activity android:name=".anim.LottieAnimActivity"/>
     </application>
 
 </manifest>

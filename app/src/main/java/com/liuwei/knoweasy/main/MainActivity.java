@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.liuwei.knoweasy.R;
+import com.liuwei.knoweasy.anim.LottieAnimActivity;
 import com.liuwei.knoweasy.base.BaseActivity;
 import com.liuwei.knoweasy.color.ColorActivity;
 import com.liuwei.knoweasy.dialog.DialogActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends BaseActivity
 		mProvider.addData(new DemoBean("Alert Dialog", DialogActivity.class));
 		mProvider.addData(new DemoBean("Color Test", ColorActivity.class));
 		mProvider.addData(new DemoBean("GridItem Demo", GridLayoutActivity.class));
+		mProvider.addData(new DemoBean("Lottie Anim Demo", LottieAnimActivity.class));
 	}
 
 	private void itemClick(View v, int pos) {

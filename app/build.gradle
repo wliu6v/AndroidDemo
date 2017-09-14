@@ -59,6 +59,9 @@ dependencies {
 
     // color test
     compile 'com.jaredrummler:colorpicker:1.0.0'
+
+    // anim
+    compile 'com.airbnb.android:lottie:2.1.0'
 }
 repositories {
     mavenCentral()
