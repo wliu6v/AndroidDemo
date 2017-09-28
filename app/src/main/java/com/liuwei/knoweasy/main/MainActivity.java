@@ -17,6 +17,7 @@ import com.liuwei.knoweasy.base.BaseActivity;
 import com.liuwei.knoweasy.color.ColorActivity;
 import com.liuwei.knoweasy.dialog.DialogActivity;
 import com.liuwei.knoweasy.grid.GridLayoutActivity;
+import com.liuwei.knoweasy.tablayout.TabLayoutActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity
 		mProvider.addData(new DemoBean("Color Test", ColorActivity.class));
 		mProvider.addData(new DemoBean("GridItem Demo", GridLayoutActivity.class));
 		mProvider.addData(new DemoBean("Lottie Anim Demo", LottieAnimActivity.class));
+		mProvider.addData(new DemoBean("TabLayout With Animation", TabLayoutActivity.class));
 	}
 
 	private void itemClick(View v, int pos) {
