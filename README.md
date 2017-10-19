@@ -15,3 +15,7 @@ AndroidDemo
 基本结论是：Java 底下的 Interface 和 `setListener(Interface i)` 这种方法会被转为两个对应的 Kotlin 方法，从而 Kotlin 端可以选择是否使用 lambda 表达式进行调用。而 Kotlin 端写的 `setListener(i:Interface)` 这种方法就不能用 Lambda 表达式。
 
 如果想在 Kotlin 使用 Lambda，方法参数形式应该是类似于 `setListener(a: ((Int) -> Unit))` 这种（也就是上面提到的 Java 转成两个对应的 Kotlin 方法其中的另一种）
+
+## EmojiEditTextDemo
+
+see [EmojiEditText 控件会覆盖 XML 中定义的 inputType 属性](http://wliu6v.github.io/2017/EmojiEditText-override-inputtype/)

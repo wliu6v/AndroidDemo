@@ -46,6 +46,6 @@ class SampleRecyclerAdapter : RecyclerView.Adapter<SampleRecyclerAdapter.ViewHol
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tv: TextView = itemView.findViewById(R.id.main_card_title_tv) as TextView
+        val tv: TextView = itemView.findViewById(R.id.main_card_title_tv)
     }
 }

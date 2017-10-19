@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.liuwei.knoweasy.EditTextDemoActivity;
 import com.liuwei.knoweasy.R;
 import com.liuwei.knoweasy.anim.LottieAnimActivity;
 import com.liuwei.knoweasy.base.BaseActivity;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseActivity
 		mProvider.addData(new DemoBean("GridItem Demo", GridLayoutActivity.class));
 		mProvider.addData(new DemoBean("Lottie Anim Demo", LottieAnimActivity.class));
 		mProvider.addData(new DemoBean("TabLayout With Animation", TabLayoutActivity.class));
+		mProvider.addData(new DemoBean("Edittext", EditTextDemoActivity.class));
 	}
 
 	private void itemClick(View v, int pos) {
