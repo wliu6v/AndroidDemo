@@ -25,6 +25,7 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
 	int TYPE_DATA = 0;
 	int TYPE_HEADER = 1;
+	int TYPE_MEASURE = 2;
 
 	List<String> dataList = Arrays.asList("Licensed", "under", "the", "Apache", "Version",
 			"2.0", "you", "may", "not", "use", "this", "file", "except", "in", "compliance", "with",
@@ -38,6 +39,8 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
 	@Override
 	public int getItemViewType(int position) {
+		if (position == 3)
+			return TYPE_MEASURE;
 		return position < headerCount ? TYPE_HEADER : TYPE_DATA;
 	}
 
@@ -47,7 +50,11 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 		if (viewType == TYPE_HEADER) {
 			vh = new HeaderViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_header, parent, false));
 		} else {
-			vh = new GridViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_item2, parent, false));
+			if (viewType == TYPE_MEASURE) {
+				vh = new GridViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_item2, parent, false));
+			} else {
+				vh = new GridViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_item3, parent, false));
+			}
 		}
 		return vh;
 	}

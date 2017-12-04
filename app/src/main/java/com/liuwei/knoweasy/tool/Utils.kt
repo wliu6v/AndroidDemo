@@ -2,6 +2,7 @@ package com.liuwei.knoweasy.tool
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -23,4 +24,20 @@ fun isLighterColor(color: Int): Boolean {
 fun hideKeyboard(v: View) {
     val imm = v.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(v.windowToken, 0)
+}
+
+//
+fun View.getMeasureType(measureSpec: Int): String {
+    val mode = (measureSpec and (0x3 shl 30)) ushr 30
+    when (mode) {
+        0 -> return "UNSPECIFIED"
+        1 -> return "EXACTLY"
+        2 -> return "AT_MOST"
+    }
+    return mode.toString()
+}
+
+fun View.getMeasureSize(measureSpec: Int): Int {
+    val size = (measureSpec and (0x3 shl 30).inv())
+    return size
 }
