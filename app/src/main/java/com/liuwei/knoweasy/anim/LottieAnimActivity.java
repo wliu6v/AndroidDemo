@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,6 +44,13 @@ public class LottieAnimActivity extends BaseActivity {
 				}
 //				hasStartAnim = !hasStartAnim;
 
+			}
+		});
+
+		findViewById(R.id.testView).setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				return false;
 			}
 		});
 	}

@@ -17,6 +17,7 @@
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -30,11 +31,17 @@
             android:name=".grid.GridLayoutActivity"
             android:windowSoftInputMode="stateHidden"
             />
+        <activity android:name=".customview.CustomViewActivity"/>
         <activity android:name=".anim.LottieAnimActivity"/>
+        <activity android:name=".video.VideoPlayerActivity"/>
         <activity
             android:name=".tablayout.TabLayoutActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".EditTextDemoActivity"/>
+        <activity
+            android:name=".innerRecyclerView.RecyclerViewActivity"
+            android:configChanges="orientation|screenSize"
+            />
     </application>
 
 </manifest>

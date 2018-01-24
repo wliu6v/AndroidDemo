@@ -2,6 +2,7 @@ package com.liuwei.knoweasy.dialog;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.blankj.utilcode.util.SizeUtils;
 import com.liuwei.knoweasy.R;
 import com.liuwei.knoweasy.base.BaseActivity;
+import com.liuwei.knoweasy.main.MainActivity;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -76,6 +78,13 @@ public class DialogActivity extends BaseActivity implements AdapterView.OnItemCl
 	private Dialog singleChoiceDemo2() {
 		AppCompatDialogFragment df = new SingleChoiceDialog2();
 		df.show(getSupportFragmentManager(), "dialog");
+		return null;
+	}
+
+	private Dialog test() {
+		Intent intent = new Intent(this, MainActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent);
 		return null;
 	}
 

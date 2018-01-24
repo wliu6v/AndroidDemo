@@ -1,5 +1,6 @@
 package com.liuwei.knoweasy.main;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -18,7 +20,9 @@ import com.liuwei.knoweasy.base.BaseActivity;
 import com.liuwei.knoweasy.color.ColorActivity;
 import com.liuwei.knoweasy.dialog.DialogActivity;
 import com.liuwei.knoweasy.grid.GridLayoutActivity;
+import com.liuwei.knoweasy.innerRecyclerView.RecyclerViewActivity;
 import com.liuwei.knoweasy.tablayout.TabLayoutActivity;
+import com.liuwei.knoweasy.video.VideoPlayerActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -44,6 +48,13 @@ public class MainActivity extends BaseActivity
 		navigationView.setNavigationItemSelectedListener(this);
 
 		initRecyclerView();
+
+		Log.d("6v", "onCreate: n version is : " + Build.VERSION_CODES.O);
+	}
+
+	@Override
+	protected void onUserLeaveHint() {
+		super.onUserLeaveHint();
 	}
 
 	private void initRecyclerView() {
@@ -71,7 +82,9 @@ public class MainActivity extends BaseActivity
 		mProvider.addData(new DemoBean("GridItem Demo", GridLayoutActivity.class));
 		mProvider.addData(new DemoBean("Lottie Anim Demo", LottieAnimActivity.class));
 		mProvider.addData(new DemoBean("TabLayout With Animation", TabLayoutActivity.class));
+		mProvider.addData(new DemoBean("Video Player", VideoPlayerActivity.class));
 		mProvider.addData(new DemoBean("Edittext", EditTextDemoActivity.class));
+		mProvider.addData(new DemoBean("Inner RecyclerView Demo", RecyclerViewActivity.class));
 	}
 
 	private void itemClick(View v, int pos) {

@@ -6,11 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
 /**
  * Created by liuwei on 2017/7/18.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends SwipeBackActivity {
 	boolean backable = false;
 
 	protected void setBackable() {

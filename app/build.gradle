@@ -26,16 +26,12 @@ android {
 }
 
 dependencies {
-
     def support_version = "26.1.0"
     def anko_version = "0.10.1"
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile 'com.blankj:utilcode:1.7.1'
-
     // support
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -46,10 +42,9 @@ dependencies {
     compile "com.android.support:support-v4:$support_version"
     compile "com.android.support:design:$support_version"
     compile "com.android.support:palette-v7:$support_version"
-    compile "com.android.support.constraint:constraint-layout:1.0.2"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile "com.android.support:support-emoji:$support_version"
     compile "com.android.support:support-emoji-bundled:$support_version"
-
     // anko
     compile "org.jetbrains.anko:anko-commons:$anko_version"
     compile "org.jetbrains.anko:anko-sdk25:$anko_version"
@@ -58,22 +53,17 @@ dependencies {
     compile "org.jetbrains.anko:anko-cardview-v7:$anko_version"
     compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
-
     compile 'com.jakewharton:butterknife:8.7.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
-
     // color test
     compile 'com.jaredrummler:colorpicker:1.0.0'
-
     // anim
     compile 'com.airbnb.android:lottie:2.1.0'
-
     // RxKotlin
-    compile "io.reactivex:rxkotlin:1.0.0"
+    compile 'io.reactivex:rxkotlin:1.0.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.jakewharton.rxbinding:rxbinding:1.0.1'
-    compile 'me.imid.swipebacklayout.lib:library:1.1.0'
-
+    implementation project(':swipeBackLayout')
 }
 repositories {
     mavenCentral()

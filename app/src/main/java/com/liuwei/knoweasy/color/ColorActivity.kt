@@ -51,6 +51,8 @@ class ColorActivity : BaseActivity(), ColorPickerDialogListener {
                 //
             }
         }
+
+        view.paintBtn.isEnabled = false
     }
 
     override fun onDialogDismissed(dialogId: Int) {
