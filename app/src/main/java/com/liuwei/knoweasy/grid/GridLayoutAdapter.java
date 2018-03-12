@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.liuwei.knoweasy.R;
 import com.liuwei.knoweasy.tool.UtilsKt;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,15 +28,14 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 	int TYPE_HEADER = 1;
 	int TYPE_MEASURE = 2;
 
-	List<String> dataList = Arrays.asList("Licensed", "under", "the", "Apache", "Version",
-			"2.0", "you", "may", "not", "use", "this", "file", "except", "in", "compliance", "with",
-			"the", "You", "may", "obtain", "a", "copy", "of", "the", "License", "at", "Unless",
-			"required", "by", "applicable", "law", "or", "agreed", "to", "in", "distributed", "under",
-			"the", "License", "is", "distributed", "on", "an", "IS", "WITHOUT", "WARRANTIES", "OR",
-			"CONDITIONS", "OF", "ANY", "either", "express", "or", "See", "the", "License", "for", "the",
-			"specific", "language", "governing", "permissions", "limitations", "under", "the");
+	private ArrayList<String> dataList = new ArrayList<>();
+	public static int headerCount = 0;
 
-	int headerCount = 1;
+	public void setDataList(List<String> data) {
+		dataList.clear();
+		dataList.addAll(data);
+		notifyDataSetChanged();
+	}
 
 	@Override
 	public int getItemViewType(int position) {
@@ -62,11 +62,13 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 	@Override
 	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 		if (holder instanceof GridViewHolder) {
-			int color = Color.argb(255, 17 * position % 255, 71 * position % 255, 193 * position % 255);
+			int color = Color.argb(255, 17 * (position + 1) % 255, 71 * (position + 1) % 255, 193 * (position + 1) % 255);
 			holder.itemView.setBackgroundColor(color);
 
 			((GridViewHolder) holder).tv.setText(dataList.get(position - headerCount));
 			((GridViewHolder) holder).tv.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), UtilsKt.isLighterColor(color) ? android.R.color.black : android.R.color.white));
+
+			((GridViewHolder) holder).bottomTv.setText("Item " + position);
 		}
 	}
 
@@ -78,6 +80,9 @@ public class GridLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 	public static class GridViewHolder extends RecyclerView.ViewHolder {
 		@BindView(R.id.grid_item_textview)
 		TextView tv;
+
+		@BindView(R.id.grid_item_bottom)
+		TextView bottomTv;
 
 		public GridViewHolder(View itemView) {
 			super(itemView);

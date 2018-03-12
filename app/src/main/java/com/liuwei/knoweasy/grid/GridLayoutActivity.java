@@ -16,6 +16,7 @@ import com.liuwei.knoweasy.tool.UtilsKt;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.imid.swipebacklayout.lib.Utils;
 
 /**
  * Created by liuwei on 2017/8/4.
@@ -84,7 +85,7 @@ public class GridLayoutActivity extends BaseActivity {
 		mGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
 			@Override
 			public int getSpanSize(int position) {
-				if (position < 1) {
+				if (position < GridLayoutAdapter.headerCount) {
 					return finalCount;
 				} else {
 					return 1;
@@ -95,14 +96,16 @@ public class GridLayoutActivity extends BaseActivity {
 			mItemDecoration = new GridItemDecoration();
 			mRecyclerView.addItemDecoration(mItemDecoration);
 		}
-		mItemDecoration.setHeaderCount(1);
+		mItemDecoration.setHeaderCount(GridLayoutAdapter.headerCount);
 		mItemDecoration.setSpanCount(count);
 		mItemDecoration.setOuterSpacing(margin);
 		mItemDecoration.setVerticalSpacing(margin);
 		mItemDecoration.setSpacing(margin);
 
 		if (mRecyclerView.getAdapter() == null) {
-			mRecyclerView.setAdapter(new GridLayoutAdapter());
+			GridLayoutAdapter adapter = new GridLayoutAdapter();
+			adapter.setDataList(UtilsKt.getStringDataArrayList());
+			mRecyclerView.setAdapter(adapter);
 		}
 		mRecyclerView.getAdapter().notifyDataSetChanged();
 	}

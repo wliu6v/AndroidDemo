@@ -63,6 +63,7 @@ dependencies {
     compile 'io.reactivex:rxkotlin:1.0.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.jakewharton.rxbinding:rxbinding:1.0.1'
+    compile 'me.relex:circleindicator:1.2.2@aar'
     implementation project(':swipeBackLayout')
 }
 repositories {

@@ -42,6 +42,7 @@
             android:name=".innerRecyclerView.RecyclerViewActivity"
             android:configChanges="orientation|screenSize"
             />
+        <activity android:name=".pagerrecyclerview.PagerRecyclerActivity"/>
     </application>
 
 </manifest>

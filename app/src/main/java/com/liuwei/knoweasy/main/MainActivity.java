@@ -21,6 +21,7 @@ import com.liuwei.knoweasy.color.ColorActivity;
 import com.liuwei.knoweasy.dialog.DialogActivity;
 import com.liuwei.knoweasy.grid.GridLayoutActivity;
 import com.liuwei.knoweasy.innerRecyclerView.RecyclerViewActivity;
+import com.liuwei.knoweasy.pagerrecyclerview.PagerRecyclerActivity;
 import com.liuwei.knoweasy.tablayout.TabLayoutActivity;
 import com.liuwei.knoweasy.video.VideoPlayerActivity;
 
@@ -85,6 +86,7 @@ public class MainActivity extends BaseActivity
 		mProvider.addData(new DemoBean("Video Player", VideoPlayerActivity.class));
 		mProvider.addData(new DemoBean("Edittext", EditTextDemoActivity.class));
 		mProvider.addData(new DemoBean("Inner RecyclerView Demo", RecyclerViewActivity.class));
+		mProvider.addData(new DemoBean("Pager RecyclerView Demo", PagerRecyclerActivity.class));
 	}
 
 	private void itemClick(View v, int pos) {

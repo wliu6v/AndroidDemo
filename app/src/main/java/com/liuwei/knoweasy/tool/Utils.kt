@@ -2,11 +2,10 @@ package com.liuwei.knoweasy.tool
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
+import java.util.*
 
 /**
  * Created by liuwei on 2017/7/25.
@@ -41,3 +40,11 @@ fun View.getMeasureSize(measureSpec: Int): Int {
     val size = (measureSpec and (0x3 shl 30).inv())
     return size
 }
+
+var StringDataArrayList = ArrayList<String>(Arrays.asList("Licensed", "under", "the", "Apache", "Version",
+        "2.0", "you", "may", "not", "use", "this", "file", "except", "in", "compliance", "with",
+        "the", "You", "may", "obtain", "a", "copy", "of", "the", "License", "at", "Unless",
+        "required", "by", "applicable", "law", "or", "agreed", "to", "in", "distributed", "under",
+        "the", "License", "is", "distributed", "on", "an", "IS", "WITHOUT", "WARRANTIES", "OR",
+        "CONDITIONS", "OF", "ANY", "either", "express", "or", "See", "the", "License", "for", "the",
+        "specific", "language", "governing", "permissions", "limitations", "under", "the"))
